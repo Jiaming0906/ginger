@@ -43,7 +43,7 @@ module.exports = {
                 //.setFooter({ text: "Timer is accurate to ±2 seconds."})
 
                 if (edit) {
-                    if (message === `Timer's up!<:happy:1245302354484400188>`) {
+                    if (message === `Timer's up!`) {
                         await interaction.editReply({ embeds: [embed] });
 
                         console.log(`Timer done!`);
@@ -57,7 +57,7 @@ module.exports = {
 
             var current = 0;
             // var total = 60;
-            await sendMessage(`${total - current} seconds remain out of your ${total} seconds timer<:support:1245296715205185607>`);
+            await sendMessage(`${total - current} seconds left`);
 
             var done;
             if (done) return;
@@ -67,10 +67,10 @@ module.exports = {
                 current++;
 
                 if (current >= total) {
-                    await sendMessage(`Timer's up!<:happy:1245302354484400188>`, true);
+                    await sendMessage(`Timer's up!`, true);
                     done = true;
                 } else {
-                    await sendMessage(`${inlineCode(total - current)} seconds remain in your ${total} seconds timer<:support:1245296715205185607>`, true);
+                    await sendMessage(`${inlineCode(total - current)} seconds left`, true);
                 }
             }, 1000);
 
