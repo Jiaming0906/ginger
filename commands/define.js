@@ -19,11 +19,17 @@ module.exports = {
     async execute(interaction) {
 
         //
+
+        await interaction.deferReply();
+
+        if (interaction.user.id !== "697822391971086406") {
+            await interaction.editReply(`Please do not use this command.`);
+            return;
+        };
+
         const { options } = interaction;
         const word = options.getString('word');
         const geturl = "https://www.dictionary.com/browse/" + word;
-
-        await interaction.deferReply();
         
         try {
             //web scrap

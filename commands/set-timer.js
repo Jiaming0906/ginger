@@ -46,7 +46,7 @@ module.exports = {
                     if (message === `Timer's up!`) {
                         await interaction.editReply({ embeds: [embed] });
 
-                        console.log(`Timer done!`);
+                        // console.log(`Timer done!`);
                         return;
                     };
                     await interaction.editReply({ embeds: [embed] });
