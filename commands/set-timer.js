@@ -40,7 +40,7 @@ module.exports = {
                 const embed = new EmbedBuilder()
                 .setColor("ab233d")
                 .setDescription(message)
-                //.setFooter({ text: "Timer is accurate to ±2 seconds."})
+                .setFooter({ text: "Please do not delete me before timer is up."})
 
                 if (edit) {
                     if (message === `Timer's up!`) {
