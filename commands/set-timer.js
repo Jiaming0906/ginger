@@ -40,19 +40,24 @@ module.exports = {
                 const embed = new EmbedBuilder()
                 .setColor("ab233d")
                 .setDescription(message)
-                .setFooter({ text: "Please do not delete me before timer is up."})
+                //.setFooter({ text: "Please do not delete me before timer is up."})
 
-                if (edit) {
-                    if (message === `Timer's up!`) {
+                try {
+                    if (edit) {
+                        if (message === `Timer's up!`) {
+                            await interaction.editReply({ embeds: [embed] });
+    
+                            // console.log(`Timer done!`);
+                            return;
+                        };
                         await interaction.editReply({ embeds: [embed] });
+                    } else {
+                        await interaction.reply({ embeds: [embed] });
+                    }
+                } catch (err) {
+                    //ignore;
+                };
 
-                        // console.log(`Timer done!`);
-                        return;
-                    };
-                    await interaction.editReply({ embeds: [embed] });
-                } else {
-                    await interaction.reply({ embeds: [embed] });
-                }
             };
 
             var current = 0;

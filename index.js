@@ -61,6 +61,31 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 });
 
+//react to ping
+client.on("messageCreate", async (message) => {
+    
+    if(message.author.bot) return;
+    if(message.author.system) return;
+
+    //console.log(message);
+
+    try {
+        //
+        if(message.content.toLowerCase().startsWith("hi") || message.content.toLowerCase().startsWith("hello")){
+            message.react("<:loopy3:1309092866592604220>");
+            message.reply("<:loopy3:1309092866592604220>");
+            return;
+            //<:loopy3:1309092866592604220>
+        };
+
+    } catch (err) {
+        console.log("index.js, reply message error");
+        console.log("error message below".padEnd(50, "-"));
+        console.log(err);
+        console.log("-".padEnd(50, "-"));
+    };
+});
+
 // log bot onto discord
 client.login(process.env.DISCORD_TOKEN);
 console.log("ginger is Online on Discord")
