@@ -25,8 +25,8 @@ module.exports = {
         const currentTime = Date.now();
         const time = `${Math.ceil(currentTime/1000) + min*60}`;
         
-        // <t:00000000000:R>
-        await interaction.reply({ content: `<t:${time}:R>` });
+        // <t:00000000000:R> countdown <t:00000000000:T> 0:00pm <t:00000000000:F> full
+        await interaction.reply({ content: `Timer's done at <t:${time}:T> <t:${time}:R>` });
         return;
     }
 };
